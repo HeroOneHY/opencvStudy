@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -19,7 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /* //reshape方法
+    cv::Mat testMat = cv::Mat::zeros ( 5, 3, CV_8UC3 ); //5行3列，3通道，5行3列3通道
+    std::cout << "size of testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
+    std::cout<<"testMat = "<<testMat<<std::endl;
+    cv::Mat result = testMat.reshape ( 0, 3 ); //0表示通道数不变，3表示行，3行5列3通道
+    std::cout << " size of original testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
+    std::cout << " size of reshaped testMat: " << result.rows << " x " << result.cols << std::endl;
+    std::cout << "result = " << result << std::endl;
+    */
     /*  *imread()方法读取图片
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"png"];
     const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
@@ -35,7 +44,7 @@
     cv::Mat mat = [self cvMatFromUIImage:tImage];
  //   NSLog(@"%d",mat.isContinuous()); // return m.rows == 1 || m.step == m.cols*m.elemSize();//检测内存存储连续性
  //   colorReduce(mat);  //减色算法
-    colorReduce3(mat);
+    colorReduce2(mat);
 /*
   //  cv::Mat gray_image;  //黑白算法
  //   cv::cvtColor(mat, gray_image, CV_BGRA2GRAY); //opencv的颜色空间以BGR为主。
@@ -69,19 +78,21 @@ void colorReduce(cv::Mat image, int div = 16)
 }
 void colorReduce2(cv::Mat image, int div = 16)
 {
-//      if (image.isContinuous()) {
-//          image.reshape(0,1); //通道数，行数
-//        //  image.resize(3);
-//      }
+
+      if (image.isContinuous()) {
+        cv::Mat resMat = image.reshape(0,1); //通道数，行数
+          NSLog(@"%d--%d",resMat.rows,resMat.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
+          NSLog(@"通道数：%d",resMat.channels()); //通道数：4
+          NSLog(@"dims：%d",resMat.dims); //通道数：4
+        //  image.resize(3);
+      }
     int m = image.rows;
     int n = image.cols*image.channels();
     if (image.isContinuous()) { //判断是否连续，如果连续就把数据归为一行，外层的for循环只执行一次
         n=m*n;
         m=1;
     }
-         NSLog(@"%d--%d",image.rows,image.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
-        NSLog(@"通道数：%d",image.channels()); //通道数：4
-     NSLog(@"通道数：%d",image.dims); //通道数：4
+    
     for (int j=0; j<m; j++) {
         uchar *data = image.ptr<uchar>(j);
         for (int i=0; i<n; i++) {
