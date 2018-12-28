@@ -29,6 +29,18 @@
     std::cout << " size of reshaped testMat: " << result.rows << " x " << result.cols << std::endl;
     std::cout << "result = " << result << std::endl;
     */
+    
+    /*  //reshape和resize
+    cv::Mat M = (cv::Mat_<uchar>(3,3) << 1,2,3,4,5,6,7,8,9);
+    std::cout<<"原矩阵：\n"<<M<<std::endl;
+    std::cout<<"mat::reshape:\n"<<M.reshape(0,1)<<std::endl;
+    
+    M.resize(1); //变为1行
+    std::cout<<"mat::resize:\n"<<M<<std::endl;
+    
+     */
+
+    
     /*  *imread()方法读取图片
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"png"];
     const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
@@ -79,13 +91,14 @@ void colorReduce(cv::Mat image, int div = 16)
 void colorReduce2(cv::Mat image, int div = 16)
 {
 
+    /*
       if (image.isContinuous()) {
         cv::Mat resMat = image.reshape(0,1); //通道数，行数
           NSLog(@"%d--%d",resMat.rows,resMat.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
           NSLog(@"通道数：%d",resMat.channels()); //通道数：4
           NSLog(@"dims：%d",resMat.dims); //通道数：4
         //  image.resize(3);
-      }
+      }*/
     int m = image.rows;
     int n = image.cols*image.channels();
     if (image.isContinuous()) { //判断是否连续，如果连续就把数据归为一行，外层的for循环只执行一次
