@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -19,8 +20,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /* //reshape方法
+    cv::Mat testMat = cv::Mat::zeros ( 5, 3, CV_8UC3 ); //5行3列，3通道，5行3列3通道
+    std::cout << "size of testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
+    std::cout<<"testMat = "<<testMat<<std::endl;
+    cv::Mat result = testMat.reshape ( 0, 3 ); //0表示通道数不变，3表示行，3行5列3通道
+    std::cout << " size of original testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
+    std::cout << " size of reshaped testMat: " << result.rows << " x " << result.cols << std::endl;
+    std::cout << "result = " << result << std::endl;
+    */
     
-    /*  *imread()
+    /*  //reshape和resize
+    cv::Mat M = (cv::Mat_<uchar>(3,3) << 1,2,3,4,5,6,7,8,9);
+    std::cout<<"原矩阵：\n"<<M<<std::endl;
+    std::cout<<"mat::reshape:\n"<<M.reshape(0,1)<<std::endl;
+    
+    M.resize(1); //变为1行
+    std::cout<<"mat::resize:\n"<<M<<std::endl;
+    
+     */
+
+    
+    /*  *imread()方法读取图片
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"png"];
     const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
     cv::Mat image;
@@ -33,21 +54,26 @@
     */
     UIImage *tImage = [UIImage imageNamed:@"test.png"];
     cv::Mat mat = [self cvMatFromUIImage:tImage];
-    colorReduce(mat);
-  //  cv::Mat gray_image;
+ //   NSLog(@"%d",mat.isContinuous()); // return m.rows == 1 || m.step == m.cols*m.elemSize();//检测内存存储连续性
+ //   colorReduce(mat);  //减色算法
+    colorReduce2(mat);
+/*
+  //  cv::Mat gray_image;  //黑白算法
  //   cv::cvtColor(mat, gray_image, CV_BGRA2GRAY); //opencv的颜色空间以BGR为主。
-    printf("kskksk%d",129%64);
+    //    NSLog(@"%d--%d",gray_image.rows,gray_image.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
+    //    NSLog(@"通道数：%d",gray_image.channels());
+    //     NSLog(@"第一维的长度 %zu",gray_image.step[0]);
+ */
+/*  // 打印data数据
     uchar *data = mat.data;
     for(int i=0;i<10;i++){
         printf("data:%d\n",data[i]);
         data[i] = data[i];
     }
-//    NSLog(@"%d--%d",gray_image.rows,gray_image.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
-//    NSLog(@"通道数：%d",gray_image.channels());
-//     NSLog(@"第一维的长度 %zu",gray_image.step[0]);
+*/
     UIImage *resultImage = [self UIImageFromCVMat:mat];
    
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 void colorReduce(cv::Mat image, int div = 16)
@@ -62,8 +88,42 @@ void colorReduce(cv::Mat image, int div = 16)
       //  data[i] = data[i] - data[i] % div + div / 2; 相似
     }
 }
+void colorReduce2(cv::Mat image, int div = 16)
+{
 
+    /*
+      if (image.isContinuous()) {
+        cv::Mat resMat = image.reshape(0,1); //通道数，行数
+          NSLog(@"%d--%d",resMat.rows,resMat.cols); //row为高，cols为宽,Mat中的数据名字叫元素，元素个数=row*cols
+          NSLog(@"通道数：%d",resMat.channels()); //通道数：4
+          NSLog(@"dims：%d",resMat.dims); //通道数：4
+        //  image.resize(3);
+      }*/
+    int m = image.rows;
+    int n = image.cols*image.channels();
+    if (image.isContinuous()) { //判断是否连续，如果连续就把数据归为一行，外层的for循环只执行一次
+        n=m*n;
+        m=1;
+    }
+    
+    for (int j=0; j<m; j++) {
+        uchar *data = image.ptr<uchar>(j);
+        for (int i=0; i<n; i++) {
+            data[i]= data[i]/div*div+div/2;
+        }
+    }
+}
+void colorReduce3(cv::Mat image, int div = 16)
+{
 
+    cv::Mat_<cv::Vec3b>::iterator it = image.begin<cv::Vec3b>();
+     cv::Mat_<cv::Vec3b>::iterator itend = image.end<cv::Vec3b>();
+    for (; it!=itend; ++it) {
+        (*it)[0] = (*it)[0]/div*div+div/2;
+         (*it)[1] = (*it)[1]/div*div+div/2;
+         (*it)[2] = (*it)[2]/div*div+div/2;
+    }
+}
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
 {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);

@@ -61,6 +61,7 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+opencv-master/
 opencv2.framework
 libjpeg.a
 *.DS_Store
