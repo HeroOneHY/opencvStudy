@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		045A55FE21D3CEFF008A24C2 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A55FD21D3CEFF008A24C2 /* test.png */; };
+		045A562121D67527008A24C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A562021D67527008A24C2 /* AppDelegate.m */; };
+		045A562421D67527008A24C2 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 045A562321D67527008A24C2 /* ViewController.mm */; };
+		045A562721D67527008A24C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A562521D67527008A24C2 /* Main.storyboard */; };
+		045A562921D67528008A24C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045A562821D67528008A24C2 /* Assets.xcassets */; };
+		045A562C21D67528008A24C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A562A21D67528008A24C2 /* LaunchScreen.storyboard */; };
+		045A562F21D67528008A24C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A562E21D67528008A24C2 /* main.m */; };
+		045A563321D6753F008A24C2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4E21CF7712004E720A /* AssetsLibrary.framework */; };
+		045A563421D67543008A24C2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4C21CF7705004E720A /* CoreMedia.framework */; };
+		045A563521D67546008A24C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4A21CF76FE004E720A /* CoreVideo.framework */; };
+		045A563621D6754A008A24C2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4821CF76F6004E720A /* Accelerate.framework */; };
+		045A563721D6754E008A24C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4621CF76F0004E720A /* QuartzCore.framework */; };
+		045A563821D67551008A24C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4421CF76E9004E720A /* CoreGraphics.framework */; };
+		045A563921D67554008A24C2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4221CF76E2004E720A /* CoreImage.framework */; };
+		045A563A21D67558008A24C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C4021CF76D3004E720A /* AVFoundation.framework */; };
+		045A563B21D6755B008A24C2 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C3E21CF76CA004E720A /* libc++.tbd */; };
+		045A563C21D67565008A24C2 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C3B21CF74F2004E720A /* opencv2.framework */; };
+		045A563D21D67568008A24C2 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F54C7821CF7C82004E720A /* libjpeg.a */; };
+		045A563E21D675F5008A24C2 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A55FD21D3CEFF008A24C2 /* test.png */; };
 		04F54C2721CF6EA9004E720A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F54C2621CF6EA9004E720A /* AppDelegate.m */; };
 		04F54C2A21CF6EA9004E720A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04F54C2921CF6EA9004E720A /* ViewController.mm */; };
 		04F54C2D21CF6EA9004E720A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F54C2B21CF6EA9004E720A /* Main.storyboard */; };
@@ -46,6 +64,16 @@
 
 /* Begin PBXFileReference section */
 		045A55FD21D3CEFF008A24C2 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		045A561D21D67527008A24C2 /* 像素操作.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "像素操作.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		045A561F21D67527008A24C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		045A562021D67527008A24C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		045A562221D67527008A24C2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		045A562321D67527008A24C2 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		045A562621D67527008A24C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		045A562821D67528008A24C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		045A562B21D67528008A24C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		045A562D21D67528008A24C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045A562E21D67528008A24C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04F54C2221CF6EA9004E720A /* opencvTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opencvTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F54C2521CF6EA9004E720A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04F54C2621CF6EA9004E720A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,6 +108,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		045A561A21D67527008A24C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045A563A21D67558008A24C2 /* AVFoundation.framework in Frameworks */,
+				045A563821D67551008A24C2 /* CoreGraphics.framework in Frameworks */,
+				045A563D21D67568008A24C2 /* libjpeg.a in Frameworks */,
+				045A563721D6754E008A24C2 /* QuartzCore.framework in Frameworks */,
+				045A563921D67554008A24C2 /* CoreImage.framework in Frameworks */,
+				045A563421D67543008A24C2 /* CoreMedia.framework in Frameworks */,
+				045A563621D6754A008A24C2 /* Accelerate.framework in Frameworks */,
+				045A563B21D6755B008A24C2 /* libc++.tbd in Frameworks */,
+				045A563321D6753F008A24C2 /* AssetsLibrary.framework in Frameworks */,
+				045A563C21D67565008A24C2 /* opencv2.framework in Frameworks */,
+				045A563521D67546008A24C2 /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04F54C1F21CF6EA9004E720A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,11 +165,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045A561E21D67527008A24C2 /* 像素操作 */ = {
+			isa = PBXGroup;
+			children = (
+				045A561F21D67527008A24C2 /* AppDelegate.h */,
+				045A562021D67527008A24C2 /* AppDelegate.m */,
+				045A562221D67527008A24C2 /* ViewController.h */,
+				045A562321D67527008A24C2 /* ViewController.mm */,
+				045A562521D67527008A24C2 /* Main.storyboard */,
+				045A562821D67528008A24C2 /* Assets.xcassets */,
+				045A562A21D67528008A24C2 /* LaunchScreen.storyboard */,
+				045A562D21D67528008A24C2 /* Info.plist */,
+				045A562E21D67528008A24C2 /* main.m */,
+			);
+			path = "像素操作";
+			sourceTree = "<group>";
+		};
 		04F54C1921CF6EA9004E720A = {
 			isa = PBXGroup;
 			children = (
 				04F54C2421CF6EA9004E720A /* opencvTest */,
 				04F54C5521CF7855004E720A /* Mat */,
+				045A561E21D67527008A24C2 /* 像素操作 */,
 				04F54C2321CF6EA9004E720A /* Products */,
 				04F54C3D21CF76CA004E720A /* Frameworks */,
 			);
@@ -134,6 +197,7 @@
 			children = (
 				04F54C2221CF6EA9004E720A /* opencvTest.app */,
 				04F54C5421CF7855004E720A /* Mat.app */,
+				045A561D21D67527008A24C2 /* 像素操作.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +256,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		045A561C21D67527008A24C2 /* 像素操作 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 045A563021D67528008A24C2 /* Build configuration list for PBXNativeTarget "像素操作" */;
+			buildPhases = (
+				045A561921D67527008A24C2 /* Sources */,
+				045A561A21D67527008A24C2 /* Frameworks */,
+				045A561B21D67527008A24C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "像素操作";
+			productName = "像素操作";
+			productReference = 045A561D21D67527008A24C2 /* 像素操作.app */;
+			productType = "com.apple.product-type.application";
+		};
 		04F54C2121CF6EA9004E720A /* opencvTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F54C3821CF6EAB004E720A /* Build configuration list for PBXNativeTarget "opencvTest" */;
@@ -235,6 +316,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = HeroOneHy;
 				TargetAttributes = {
+					045A561C21D67527008A24C2 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
 					04F54C2121CF6EA9004E720A = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
@@ -258,11 +342,23 @@
 			targets = (
 				04F54C2121CF6EA9004E720A /* opencvTest */,
 				04F54C5321CF7855004E720A /* Mat */,
+				045A561C21D67527008A24C2 /* 像素操作 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		045A561B21D67527008A24C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045A562C21D67528008A24C2 /* LaunchScreen.storyboard in Resources */,
+				045A562921D67528008A24C2 /* Assets.xcassets in Resources */,
+				045A562721D67527008A24C2 /* Main.storyboard in Resources */,
+				045A563E21D675F5008A24C2 /* test.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04F54C2021CF6EA9004E720A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +383,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		045A561921D67527008A24C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045A562421D67527008A24C2 /* ViewController.mm in Sources */,
+				045A562F21D67528008A24C2 /* main.m in Sources */,
+				045A562121D67527008A24C2 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04F54C1E21CF6EA9004E720A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +416,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		045A562521D67527008A24C2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				045A562621D67527008A24C2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		045A562A21D67528008A24C2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				045A562B21D67528008A24C2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		04F54C2B21CF6EA9004E720A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,6 +467,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		045A563121D67528008A24C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SRDD5RQ9SK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opencvTest",
+				);
+				INFOPLIST_FILE = "像素操作/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opencvTest",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hero.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		045A563221D67528008A24C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SRDD5RQ9SK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opencvTest",
+				);
+				INFOPLIST_FILE = "像素操作/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opencvTest",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hero.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		04F54C3621CF6EAB004E720A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -566,6 +738,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		045A563021D67528008A24C2 /* Build configuration list for PBXNativeTarget "像素操作" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				045A563121D67528008A24C2 /* Debug */,
+				045A563221D67528008A24C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04F54C1D21CF6EA9004E720A /* Build configuration list for PBXProject "opencvTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
