@@ -21,32 +21,35 @@
     [super viewDidLoad];
     UIImage *tImage = [UIImage imageNamed:@"test.png"];
     cv::Mat mat = [self cvMatFromUIImage:tImage];
+    [self test3:mat];
+    UIImage *resImage =  [self UIImageFromCVMat:mat];
+ //   [self test2];
+}
+- (void)test0:(cv::Mat)mat{ //通道分离实验
     std::vector<cv::Mat> planes;
     cv::split(mat, planes);
-  //  cv::Mat chMat = planes[3]; //bgra
+    //  cv::Mat chMat = planes[3]; //bgra
     cv::Mat  r = planes[0];
     cv::Mat  g = planes[1];
     cv::Mat  b = planes[2];
-     cv::Mat a = planes[3];
-   // std::cout<<a<<std::endl; //打印alpha通道
+    cv::Mat a = planes[3];
+    // std::cout<<a<<std::endl; //打印alpha通道
     
     cv::Mat resMat;
     cv::Mat imageA0 = cv::Mat(mat.size(),mat.depth(),cv::Scalar(0));
     std::vector<cv::Mat> src;
     src.push_back(r);
-     src.push_back(imageA0);
-     src.push_back(imageA0);
-     src.push_back(a);
+    src.push_back(imageA0);
+    src.push_back(imageA0);
+    src.push_back(a);
     cv::merge(src,resMat);
-    UIImage *resImage =  [self UIImageFromCVMat:resMat];
- //   [self test2];
 }
-- (void)test{
+- (void)test{ //创建mat
     cv::Mat rgb(3,4,CV_8UC4, cv::Scalar(255,0,0,255) ); //创建一个3*4的rgb图片并打印出来
    //  UIImage *resImage =  [self UIImageFromCVMat:rgb];
     std::cout<<"rgb"<<rgb<<std::endl;
 }
-- (void)test2{
+- (void)test2{ //读取
     cv::Mat rgb( 3, 4, CV_8UC3, cv::Scalar(1,2,3,4) );
     cv::vector<cv::Mat> channels;
     split(rgb,channels);
@@ -58,6 +61,19 @@
     std::cout<<"g="<<std::endl<<g<<std::endl;
     std::cout<<"b="<<std::endl<<b<<std::endl;
     
+}
+- (void)test3:(cv::Mat)mat{ //重映射
+    cv::Mat X(mat.rows,mat.cols,CV_32F);
+    cv::Mat Y(mat.rows,mat.cols,CV_32F);
+    for (int i=0; i<mat.rows; i++) { //行
+        for (int j=0; j<mat.cols; j++) { //列
+            X.at<float>(i,j) = j-1; //横轴方向
+            Y.at<float>(i,j) = i; //纵轴方向
+        }
+    }
+    cv::Mat result;
+    cv::remap(mat, result, X, Y, cv::INTER_LINEAR);
+     UIImage *resImage =  [self UIImageFromCVMat:result];
 }
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
 {
