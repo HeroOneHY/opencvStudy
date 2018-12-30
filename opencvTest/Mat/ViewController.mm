@@ -56,7 +56,7 @@
     cv::Mat mat = [self cvMatFromUIImage:tImage];
  //   NSLog(@"%d",mat.isContinuous()); // return m.rows == 1 || m.step == m.cols*m.elemSize();//检测内存存储连续性
  //   colorReduce(mat);  //减色算法
-    colorReduce2(mat);
+//    colorReduce2(mat);
 /*
   //  cv::Mat gray_image;  //黑白算法
  //   cv::cvtColor(mat, gray_image, CV_BGRA2GRAY); //opencv的颜色空间以BGR为主。
@@ -73,7 +73,7 @@
 */
     UIImage *resultImage = [self UIImageFromCVMat:mat];
    
-
+    [self testMatInit];
 }
 
 void colorReduce(cv::Mat image, int div = 16)
@@ -123,6 +123,21 @@ void colorReduce3(cv::Mat image, int div = 16)
          (*it)[1] = (*it)[1]/div*div+div/2;
          (*it)[2] = (*it)[2]/div*div+div/2;
     }
+}
+- (void)testMatInit{
+    /* //方式1
+    cv::Mat M(7,7,CV_32FC2,cv::Scalar(1,3)); //7*7，2通道，每个元素为(1,3)
+    M.create(2,3,CV_8UC(10)); //2*3,10通道
+    std::cout<<M;
+     */
+    /* //方式二
+   cv::Mat H(2, 3, CV_64FC1);
+    for(int i = 0; i < H.rows; i++) //rows==2
+        for(int j = 0; j < H.cols; j++)  //cols==3
+            H.at<double>(i,j)=1.0/(i+j+1); // H.at<double>(i,j) 第i行第j列
+    std::cout<<H;
+    */
+    
 }
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
 {
