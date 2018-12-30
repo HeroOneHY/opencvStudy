@@ -21,7 +21,7 @@
     [super viewDidLoad];
     UIImage *tImage = [UIImage imageNamed:@"test.png"];
     cv::Mat mat = [self cvMatFromUIImage:tImage];
-    [self test3:mat];
+    [self test4:mat];
     UIImage *resImage =  [self UIImageFromCVMat:mat];
  //   [self test2];
 }
@@ -74,6 +74,23 @@
     cv::Mat result;
     cv::remap(mat, result, X, Y, cv::INTER_LINEAR);
      UIImage *resImage =  [self UIImageFromCVMat:result];
+
+}
+-(void)test4:(cv::Mat)mat{ //用色调，饱和度，亮度表示图像
+    cv::Mat hsv;
+    cv::cvtColor(mat, hsv, CV_BGR2HSV); //把rgb转化成hsv
+    
+    std::vector<cv::Mat>chans;
+    cv::split(hsv, chans);
+ //   chans[0] += 250; //改变颜色
+  //  chans[1] -= 90; //修改饱和度
+   // chans[2] -= 100; //改变亮度
+    cv::merge(chans, hsv);
+    cv::Mat newImage;
+    cv::cvtColor(hsv, newImage, CV_HSV2BGR);
+   
+      UIImage *resImage =  [self UIImageFromCVMat:newImage]; //0表示色调，1表示饱和度，2表示亮度
+     std::cout<<"r="<<std::endl<<chans[2]<<std::endl;
 }
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
 {
