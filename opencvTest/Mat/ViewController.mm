@@ -20,10 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /* //reshape方法
-    cv::Mat testMat = cv::Mat::zeros ( 5, 3, CV_8UC3 ); //5行3列，3通道，5行3列3通道
+   
+    cv::Mat testMat = cv::Mat::zeros ( 5, 4, CV_8UC3 ); //5行3列，3通道，5行3列3通道
     std::cout << "size of testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
     std::cout<<"testMat = "<<testMat<<std::endl;
+    std::cout<<testMat.step[0]<<std::endl;
+     std::cout<<testMat.step[1]<<std::endl;
+     /* //reshape方法
     cv::Mat result = testMat.reshape ( 0, 3 ); //0表示通道数不变，3表示行，3行5列3通道
     std::cout << " size of original testMat: " << testMat.rows << " x " << testMat.cols << std::endl;
     std::cout << " size of reshaped testMat: " << result.rows << " x " << result.cols << std::endl;
@@ -52,8 +55,8 @@
     }
     UIImage *uiImage = MatToUIImage(image);
     */
-    UIImage *tImage = [UIImage imageNamed:@"test.png"];
-    cv::Mat mat = [self cvMatFromUIImage:tImage];
+//    UIImage *tImage = [UIImage imageNamed:@"test.png"];
+//    cv::Mat mat = [self cvMatFromUIImage:tImage];
  //   NSLog(@"%d",mat.isContinuous()); // return m.rows == 1 || m.step == m.cols*m.elemSize();//检测内存存储连续性
  //   colorReduce(mat);  //减色算法
 //    colorReduce2(mat);
@@ -71,9 +74,9 @@
         data[i] = data[i];
     }
 */
-    UIImage *resultImage = [self UIImageFromCVMat:mat];
-   
-    [self testMatInit];
+//    UIImage *resultImage = [self UIImageFromCVMat:mat];
+//
+//    [self testMatInit];
 }
 
 void colorReduce(cv::Mat image, int div = 16)
